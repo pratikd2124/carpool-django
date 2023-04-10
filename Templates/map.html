@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Geolocation</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <link id="pagestyle" href="../../../static/css/soft-ui-dashboard.css?v=1.0.6" rel="stylesheet" />
+
+    {% comment %} Car Model {% endcomment %}
+    <script type="text/javascript" src="//use.typekit.net/uvs8amk.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+        
+	</style>
+
+</head>
+
+<body>
+   
+    <div class="container d-flex justify-content-center m-6">
+        {% if coordinates %}
+        <form action="{% url 'createride' %}" class="m-5" method="POST">
+            <div class="form-group">
+                {% csrf_token %}
+
+            <label >Start Destination Address</label>
+            <input type="text" name="from_add"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled value={{request.session.createride.from_address}}>
+            </div>
+
+            <div class="form-group">
+            <label >To Destination Address</label>
+            <input type="text"  name="to_add" class="form-control" id="exampleInputPassword1" disabled value={{request.session.createride.to_address}} >
+            </div>
+            <div class="form-group">
+                <label >Date</label>
+                <input type="text" name="date" class="form-control" value="{{ request.session.createride.date }}" disabled>
+            </div>
+            <div class="form-group">
+                <label >Time</label>
+                <input type="text" name="date" class="form-control"value="{{ request.session.createride.time }}" disabled>
+            </div>
+                
+            <div class="form-group">
+                    <label >Car Model, Year, Insured?</label>
+                    <div class="container d-flex">
+
+                    <select data-placeholder="&nbsp;Year" name="yr" class="chzn-select year form-control" style="width:70px;" tabindex="1" id="year">
+                    <option value=""></option>
+                    <option value="2014">2014</option>
+                    <option value="2013">2013</option>
+                    <option value="2012">2012</option>
+                    <option value="2011">2011</option>
+                    <option value="2010">2010</option>
+                    <option value="2009">2009</option>
+                    <option value="2008">2008</option>
+                    <option value="2007">2007</option>
+                    <option value="2006">2006</option>
+                    <option value="2005">2005</option>
+                    <option value="2004">2004</option>
+                    <option value="2003">2003</option>
+                    <option value="2002">2002</option>
+                    <option value="2001">2001</option>
+                    <option value="2000">2000</option>
+                    <option value="1999">1999</option>
+                    <option value="1998">1998</option>
+                    <option value="1997">1997</option>
+                    <option value="1996">1996</option>
+                    <option value="1995">1995</option>
+                    <option value="1994">1994</option>
+                    <option value="1993">1993</option>
+                    <option value="1992">1992</option>
+                    <option value="1991">1991</option>
+                    <option value="1990">1990</option>
+                    </select><select data-placeholder="Make" name="car" class="form-control chzn-select" style="width:115px;" tabindex="2" id="make">
+                    <option value=""></option>
+                    <option value="ACURA">ACURA</option>
+                    <option value="ASTON MARTIN">ASTON MARTIN</option>
+                    <option value="AUDI">AUDI</option>
+                    <option value="BENTLEY">BENTLEY</option>
+                    <option value="BMW">BMW</option>
+                    <option value="BUICK">BUICK</option>
+                    <option value="CADILLAC">CADILLAC</option>
+                    <option value="CHEVROLET">CHEVROLET</option>
+                    <option value="CHRYSLER">CHRYSLER</option>
+                    <option value="DODGE">DODGE</option>
+                    <option value="FERRARI">FERRARI</option>
+                    <option value="FORD">FORD</option>
+                    <option value="GMC">GMC</option>
+                    <option value="HONDA">HONDA</option>
+                    <option value="HUMMER">HUMMER</option>
+                    <option value="HYUNDAI">HYUNDAI</option>
+                    <option value="INFINITI">INFINITI</option>
+                    <option value="ISUZU">ISUZU</option>
+                    <option value="JAGUAR">JAGUAR</option>
+                    <option value="JEEP">JEEP</option>
+                    <option value="KIA">KIA</option>
+                    <option value="LAMBORGHINI">LAMBORGHINI</option>
+                    <option value="LAND ROVER">LAND ROVER</option>
+                    <option value="LEXUS">LEXUS</option>
+                    <option value="LINCOLN">LINCOLN</option>
+                    <option value="LOTUS">LOTUS</option>
+                    <option value="MASERATI">MASERATI</option>
+                    <option value="MAYBACH">MAYBACH</option>
+                    <option value="MAZDA">MAZDA</option>
+                    <option value="MERCEDES-BENZ">MERCEDES-BENZ</option>
+                    <option value="MERCURY">MERCURY</option>
+                    <option value="MINI">MINI</option>
+                    <option value="MITSUBISHI">MITSUBISHI</option>
+                    <option value="NISSAN">NISSAN</option>
+                    <option value="PONTIAC">PONTIAC</option>
+                    <option value="PORSCHE">PORSCHE</option>
+                    <option value="ROLLS-ROYCE">ROLLS-ROYCE</option>
+                    <option value="SAAB">SAAB</option>
+                    <option value="SATURN">SATURN</option>
+                    <option value="SUBARU">SUBARU</option>
+                    <option value="SUZUKI">SUZUKI</option>
+                    <option value="TOYOTA">TOYOTA</option>
+                    <option value="VOLKSWAGEN">VOLKSWAGEN</option>
+                    <option value="VOLVO">VOLVO</option>
+                    </select><select data-placeholder="Model" name ="model" class="form-control chzn-select" style="width:115px;" tabindex="3" id="model">
+                    <option value=""></option>
+                    <option value="COMMANDER">COMMANDER</option>
+                    <option value="COMPASS">COMPASS</option>
+                    <option value="GRAND CHEROKEE">GRAND CHEROKEE</option>
+                    <option value="LIBERTY">LIBERTY</option>
+                    <option value="PATRIOT">PATRIOT</option>
+                    <option value="WRANGLER">WRANGLER</option>
+                    </select><select data-placeholder="Trim" name="fueltype"class="form-control chzn-select" style="width:100px;" tabindex="4" id="trim">
+                    <option value=""></option>
+                    <option value="CNG">CNG</option>
+                    <option value="Petrol">Petrol</option>
+                    <option value="Disel">Disel</option>
+                    <option value="Electric">Electric</option>
+                    </select>
+                </div>
+
+                <div class="checkbox">
+                    <label for="checkbox" class="text">Currently Insured?</label>
+                    <input type="checkbox" id="checkbox" name="insured"value="1" checked="checked" />
+                    <label class="box" for="checkbox"></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label >No. of seats Available</label>
+                <input type="number" name="no_seats" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label >Price Per Seats (in ₹)</label>
+                <input type="number" name="price" class="form-control">
+            </div>
+            <div class="form-group">
+                <label >Enter UPI id for generating UPI-QR</label>
+                <input type="text" name="upi" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary" name="confirm" value='confirm'>Confirm</button>
+            <button type="submit" class="btn btn-primary" name="cancel"value="cancel" >Cancel</button>
+        </form>
+        
+        <script>
+            
+        </script>
+
+
+        {% else %}
+        <form action="{% url 'mapview' %}" class="m-5"method="POST">
+            <h3> Enter Destination Adress</h3>
+            <div class="form-group">
+                {% csrf_token %}
+
+            <label >Start Destination Address</label>
+            <input type="text" name="from_add"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="From">
+            </div>
+
+            <div class="form-group">
+            <label >To Destination Address</label>
+            <input type="text"  name="to_add" class="form-control" id="exampleInputPassword1" placeholder="To">
+            </div>
+            <div class="form-group">
+                <label >Date and Time</label>
+                <input type="date"  name="date" class="form-control" id="exampleInputPassword1" placeholder="To">
+                </div>
+                <div class="form-group">
+                    <label >Date and Time</label>
+                    <input type="time"  name="time" class="form-control" id="exampleInputPassword1" placeholder="To">
+                </div>
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        {% endif %}
+       
+        <div id="map" class="m-5" style="width:50%; height:50vh"></div>
+    </div>
+
+	<script>
+        var map = L.map('map').setView([{{coordinates.from_lat}}, {{coordinates.from_long}}], 13);
+
+                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            
+            var signleMarker = L.marker([ {{coordinates.from_lat}},{{coordinates.from_long}}]);
+            var secondMarker = L.marker([{{coordinates.to_lat}},{{coordinates.to_long}}]);
+
+            signleMarker.bindPopup('Ghatkopar Metro Station').openPopup();
+            signleMarker.addTo(map)
+
+            secondMarker.bindPopup('Ghatkopar Metro Station').openPopup();
+            secondMarker.addTo(map)
+
+            googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
+                maxZoom: 20,
+                subdomains:['mt0','mt1','mt2','mt3']
+            });
+            
+            googleHybrid = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
+                maxZoom: 20,
+                subdomains:['mt0','mt1','mt2','mt3']
+            });
+            
+            googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+                maxZoom: 20,
+                subdomains:['mt0','mt1','mt2','mt3']
+            });
+            
+            googleTerrain = L.tileLayer('http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}',{
+                maxZoom: 20,
+                subdomains:['mt0','mt1','mt2','mt3']
+            });
+
+            var baseMaps = {
+                'Google Street':googleStreets,
+                'Google Satellite':googleSat, 
+            }
+            var overlayMaps={
+                'marker':signleMarker,
+                
+            }
+            var layerControl = L.control.layers(baseMaps, overlayMaps);
+            layerControl.addTo(map);
+            L.Routing.control({
+                waypoints: [
+                  L.latLng({{coordinates.from_lat}},{{coordinates.from_long}}),
+                  L.latLng({{coordinates.to_lat}},{{coordinates.to_long}})
+                ]
+              }).on('routesfound',function(e){
+                console.log(e)
+              })
+              .addTo(map);
+
+              
+	</script>
+
+    
+
+</body>
+
+</html>

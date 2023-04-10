@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+  
+  
+    <div class="page-header-ui page-header-ui-dark bg-gradient-primary-to-secondary">
+
+        <div class="page-header-ui-content ">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                  <div class="col-lg-6 flex-column d-lg-block aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                    <img class="img-fluid m-2 pb-2" src='../../static/photo.jpg' />
+                  </div>
+                    <div class="col-lg-6 aos-init aos-animate" data-aos="fade-up">
+                        <h1 class="page-header-ui-title mt-3">Share your rides on SHARER, Bikepool & Carpool for Professionals</h1>
+                        <p class="page-header-ui-text mb-5">we have committed to providing a convenient, economical and sustainable solution to this problem through carpooling and bike pooling.</p>
+                        <div class="mx-auto text-center">
+                          <a class="btn btn-success fw-500 me-2" href="{% url 'signup' %}">
+                            Sign Up
+                        </a>
+                        <a class="btn btn-warning fw-500" href="{% url 'userlogin'%}">Login</a>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    <section class="py-2">
+        <div class="container  p-4">
+            <div class="row gx-5 text-center">
+              
+                <div class="col-lg-3 m-3 border mb-5 mb-lg-0 p-4 my-5 bg-primary">
+                <div class="icon-stack icon-stack-xl bg-gradient-primary-to-secondary text-white mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                </div>
+                    <h3 class="text-white">Pick of rides at low prices </h3>
+                    <p class="text-white">Our customizable, block-based build system makes creating your next project fast and easy!</p>
+                </div>
+                <div class="col-lg-4 border m-2 mb-5 mb-lg-0 p-4 my-5 bg-primary">
+                    <div class="icon-stack icon-stack-xl bg-gradient-primary-to-secondary text-white mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-smartphone"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div>
+                    <h3 class="text-white">Trust who you travel with</h3>
+                    <p class="text-white">Featuring carefully crafted, mobile-first components, your end product will function beautifully on any device!</p>
+                </div>
+                <div class="col-lg-4 m-2 mb-5 mb-lg-0 p-4 my-5 bg-primary">
+                    <div class="icon-stack icon-stack-xl bg-gradient-primary-to-secondary text-white mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-code"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
+                    <h3 class="text-white">Scroll, click, tap and go</h3>
+                    <p class="text-white">All of the layouts, page sections, components, and utilities are fully covered in this products docs.</p>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    <footer class="bg-primary mt-5 text-white text-center text-lg-start">
+        <!-- Grid container -->
+        <div class="container p-4">
+          <!--Grid row-->
+          <div class="row">
+            <!--Grid column-->
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+              <h5 class="text-uppercase">SHARER - carpooling webapp</h5>
+      
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+                molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam
+                voluptatem veniam, est atque cumque eum delectus sint!
+              </p>
+            </div>
+            <!--Grid column-->
+      
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase">Developed by</h5>
+      
+              <ul class="list-unstyled mb-0 ">
+                <li>
+                  <a href="#!" class="text-white">Akshay Pokharkar</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Pratik Dhumal</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Aman Singh</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Hrithik Hadawale</a>
+                </li>
+              </ul>
+            </div>
+            <!--Grid column-->
+      
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase mb-0">Social</h5>
+      
+              <ul class="list-unstyled">
+                <li>
+                  <a href="#!" class="text-white">Link 1</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Link 2</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Link 3</a>
+                </li>
+                <li>
+                  <a href="#!" class="text-white">Link 4</a>
+                </li>
+              </ul>
+            </div>
+            <!--Grid column-->
+          </div>
+          <!--Grid row-->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          ©  {% now "Y" %} Copyright:
+          <a class="text-white" href="/">SHARER</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+      </div>
+  
+{% endblock %}

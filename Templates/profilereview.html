@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Review</title>
+   
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- <link href="../../../static/css/nucleo-svg.css" rel="stylesheet" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/> -->
+  <!-- CSS Files -->
+  <link id="pagestyle" href="../../../static/css/soft-ui-dashboard.css?v=1.0.6" rel="stylesheet" />
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+</head>
+<body>
+  {% block content %}
+
+    <section class="h-100 " style="background-color: rgb(241, 241, 241);">
+        <div class="container-fluid py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-12 col-xl-9">
+              <div class="card card-body blur shadow-blur">
+                <div class="rounded-top text-white d-flex flex-row" style="background-color: rgb(73, 41, 97); height:200px;">
+                  <div class="ms-4 mt-5 d-flex flex-column" style="width: 250px;z-index: 1;">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+                      alt="Generic placeholder image" class="img-fluid img-thumbnail mt-3 mb-2 mx-4 "
+                      style="width: 200px;"/>
+                      <div class="d-flex flex-row w-25 pb-1 mx-4" style="margin-left:40px!important;">
+                        <img src="../../../static/star.png" class="img-fluid w-50" id="star-1" style="z-index: 1;"/>
+                        <img src="../../../static/star.png" class="img-fluid w-50" id="star-1" style="z-index: 1;"/>
+                        <img src="../../../static/star.png" class="img-fluid w-50" id="star-1" style="z-index: 1;"/>
+
+                      </div>
+                      <div class="d-flex justify-content-evenly">
+                        <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark" >
+                        Give ratings
+                        </button>
+                        <button type="button" class="btn btn-outline-primary">Connect</button>
+                      </div>
+                        
+                  </div>
+                  <div class="ms-3" style="margin-top: 130px;">
+                    <h5 class="text-white">Andy Horwitz</h5>
+                    <p>New York</p>
+                  </div>
+                </div>
+                <div class="container p-5 text-black border-radius-2 w-100" style="background-color: #d8e5f2;">
+                  <div class="d-flex justify-content-end text-center py-1 px-4">
+                    <div>
+                      <p class="mb-1 h5">253</p>
+                      <p class="small text-muted mb-0">Total Rides</p>
+                    </div>
+                    <div class="px-3">
+                      <p class="mb-1 h5">3.5</p>
+                      <p class="small text-muted mb-0">Ratings</p>
+                    </div>
+                    <div>
+                      <p class="mb-1 h5">478</p>
+                      <p class="small text-muted mb-0">Friends</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body p-4 text-black">
+                  <div class="mb-5">
+                    <p class="lead fw-normal mb-1">About</p>
+                    <div class="p-4" style="background-color: #f8f9fa;">
+                      <p class="font-italic mb-1">Web Developer</p>
+                      <p class="font-italic mb-1">Lives in New York</p>
+                      <p class="font-italic mb-0">Photographer</p>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center mb-4">
+                    <p class="lead fw-normal mb-0">Recent photos</p>
+                    <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {% endblock %}
+      <!--   Core JS Files   -->
+  <script src="../../../static/js/core/popper.min.js"></script>
+  <script src="../../../static/js/core/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+</body>
+</html>

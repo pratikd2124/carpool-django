@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link href="../../../static/css/searchbar.css" rel="stylesheet" />
+    <link href="../../../static/css/label.css" rel="stylesheet" /> -->
+    <link id="pagestyle" href="../../../static/css/soft-ui-dashboard.css?v=1.0.6" rel="stylesheet" />
+    
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body style="background:rgb(246, 246, 246);">
+    <!-- filter -->
+    <style>
+      .card{border:0;}
+    </style>
+    <div class="container-fluid">
+      
+        <div class="row">
+          <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse shadow">
+            <div class="position-sticky pt-3 mt-5 sidebar-sticky">
+              <ul class="nav flex-column">
+                <li class="nav-item p-2">
+                  <h3>Filter</h3>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link ms-2" aria-current="page" href="{% url 'dashboard' %}">
+                    <span data-feather="home" class="align-text-bottom"></span>
+                    Dashboard
+                  </a>
+                <li class="nav-item">
+                  <label class="form-check nav-link">
+                    <input class="" type="radio" name="exampleRadio" value="">
+                    <span class="form-check-label">              
+                    Earliest departure
+                    </span>
+                  </label>
+                </li>
+                <li class="nav-item">
+                  <label class="form-check nav-link">
+                    <input class="" type="radio" name="exampleRadio" value="">
+                    <span class="form-check-label">
+                      Lowest price
+                    </span>
+                  </label>
+                </li>
+                <li class="nav-item">
+                  <label class="form-check nav-link">
+                    <input class="" type="radio" name="exampleRadio" value="">
+                    <span class="form-check-label">
+                      More Passengers
+                    </span>
+                  </label>
+                </li>
+                <li class="nav-item">
+                  <label class="form-check nav-link">
+                    <input class="" type="radio" name="exampleRadio" value="">
+                    <span class="form-check-label">
+                      Less passengers
+                    </span>
+                  </label>
+                </li>
+                <li class="nav-item">
+                  <label class="form-check nav-link">
+                    <input class="" type="radio" name="exampleRadio" value="">
+                    <span class="form-check-label">
+                      Shortest ride
+                    </span>
+                  </label>
+                </li>
+                
+              </ul>
+      
+              
+            </div>
+          </nav>
+
+          <!-- searchbar -->
+    
+    <!-- searchbar -->
+    <!-- post -->
+    <section class="container-fluid py-4 mt-4 mx-auto col  col-xl-4 col-lg-6 ">
+        <div className="d-flex flex-column p-4 justify-content-center">
+          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+            <div class="input-group">
+              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+              <input type="text" class="form-control" placeholder="Type here...">
+            <button type="submit" class="btn btn-primary " name="" value=''>Search</button>
+
+            </div>
+          </div>
+          {% for ride in rides  %}
+          
+            <div class="card mb-4">
+                <div class="author p-3 mx-3 align-items-center">
+                    <img src="../../../static/img/bruce-mars.jpg" alt="..." class="avatar shadow">
+                    <div class="name ps-3">
+                      <span>{{ride.did.fname}}</span>
+                      <div class="stats">
+                        <small>{{ride.autodate}}</small>
+                      </div>
+                    </div>
+                  </div>
+                
+                <div class="card-body pt-2"> 
+                    <div class="d-flex flex-row">
+                        <div class="timeline timeline-one-side col-4 mx-3">
+                            <div class="timeline-block mb-3">
+                              <span class="timeline-step">
+                                <!-- <i class="ni ni-bell-55 text-success text-gradient"></i> -->
+                                <i class="fa-solid fa-street-view text-info text-gradient"></i>
+                              </span>
+                              <div class="timeline-content">
+                                <h6 class="text-primary card-title h6 font-weight-bold mb-0">{{ride.from_address}}</h6>
+                                
+                                <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">{{ride.date | date:'M d, Y'}} <br>   {{ride.time}} </p>
+                               
+                              </div>
+                              
+                            </div>
+    
+                            <div class="timeline-block mb-3">
+                                <span class="timeline-step">
+                                  <i class="fa-solid fa-location-dot text-info text-gradient"></i>
+                                </span>
+                                <div class="timeline-content ">
+                                  <h6 class="text-primary card-title h6 font-weight-bold mb-0">{{ride.to_address}}</h6>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-8 px-3">
+                            <span class=" text-dark text-uppercase text-lg font-weight-bold my-2"> ₹ {{ride.price}}</span>
+                            <p class="card-title font-weight-bold d-block text-dark ">
+                              Available Seats : {{ride.available_seats}}
+                            </p>
+                            <small class="card-text">
+                                Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons.
+                            </small>
+                        </div>
+                    </div>
+                    
+                  
+                  
+                </div>
+                <div class="text-center mx-3">
+                  <a href="{% url 'paymentdetails' ride.id %}" class="btn btn-info text-white" role="button" aria-pressed="true">Pay Now</a>
+                  <a href="{% url 'request_ride' ride.id %}" class="btn btn-info text-white" role="button" aria-pressed="true">Request For Ride</a>
+                </div>
+            
+            </div>
+            {% endfor %}
+
+              <!--  -->
+             
+        </div>
+        <!--  -->
+        
+    </section>
+    
+    <!-- post -->
+        </div>
+    </div>
+    <!-- filter -->
+    
+    
+  <script src="../../../static/js/soft-ui-dashboard.min.js?v=1.0.6"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    {% endblock %}
+</body>
+</html>
