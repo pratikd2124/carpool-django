@@ -1,8 +1,8 @@
 
 # Create your views here.
 from django.shortcuts import render
-from django.http import HttpResponse  ,HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.http import HttpResponse  ,HttpResponseRedirect 
+from django.shortcuts import render, redirect , get_object_or_404
 from django.urls import reverse
 from django.contrib.auth import authenticate
 from carpooling import settings
@@ -15,6 +15,7 @@ from mainride.models import *
 import geocoder
 from django.contrib import messages
 from mainride.models import  *
+from datetime import datetime
 
 
 # Create your views here.
@@ -35,9 +36,14 @@ def profilereview(request):
     return render(request, 'profilereview.html')  
 
 def postview(request):
-    rides = createRideLoc.objects.order_by('-id').all()
+    rides = createRideLoc.objects.order_by('-id').filter(date__gt=datetime.today())
 
     return render(request, 'posts.html',{'rides':rides}) 
+
+def view_map(request,id):
+    ride_de = get_object_or_404(createRideLoc,id=id)
+
+    return render(request, 'view_map.html',{'rides':ride_de}) 
 
 def chatview(request):
     if request.user.is_authenticated:

@@ -30,14 +30,22 @@
           <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse shadow">
             <div class="position-sticky pt-3 mt-5 sidebar-sticky">
               <ul class="nav flex-column">
-                <li class="nav-item p-2">
-                  <h3>Filter</h3>
-                </li>
+                
                 <li class="nav-item">
                   <a class="nav-link ms-2" aria-current="page" href="{% url 'dashboard' %}">
                     <span data-feather="home" class="align-text-bottom"></span>
-                    Dashboard
+                    <h5>Drivers dashboard</h5>
                   </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link ms-2" aria-current="page" href="{% url 'prevrideDtails' %}">
+                    <span data-feather="home" class="align-text-bottom"></span>
+                    <h5>Riders dashboard</h5>
+                  </a>
+                </li>
+                <li class="nav-item p-2">
+                  <h3>Filter</h3>
+                </li>
                 <li class="nav-item">
                   <label class="form-check nav-link">
                     <input class="" type="radio" name="exampleRadio" value="">
@@ -155,6 +163,7 @@
                 <div class="text-center mx-3">
                   <a href="{% url 'paymentdetails' ride.id %}" class="btn btn-info text-white" role="button" aria-pressed="true">Pay Now</a>
                   <a href="{% url 'request_ride' ride.id %}" class="btn btn-info text-white" role="button" aria-pressed="true">Request For Ride</a>
+                  <a href="{% url 'view_map' ride.id %}" class="btn btn-info text-white" role="button" aria-pressed="true">View Route</a>
                 </div>
             
             </div>

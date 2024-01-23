@@ -39,7 +39,7 @@
           <div class="col-auto my-auto">
             <div class="h-100">
               <h5 class="mb-1">
-                Alec Thompson
+                {{user.fname}}
               </h5>
               <p class="mb-0 font-weight-bold text-sm">
                 Driver / passenger
@@ -59,7 +59,7 @@
     <!--  -->
     <div class="container-fluid py-4">
       <div class="d-flex flex-row ">
-        <div class="col-12 col-xl-6">
+        <div class="col-12 mx-auto">
           <div class="card h-100 m-2">
             <div class="card-body p-3 my-4 w-75">
               
@@ -157,13 +157,13 @@
                                 <label >Verified  <span class='checkmark'></span></label>
                                 <input readonly type="text" id="input-city" class="form-control form-control-alternative" value="{{aadhar.aadharno}}">
         
-                                <button type="button" class="btn bg-gradient-info btn-block" data-bs-toggle="modal" data-bs-target="#exampleModal1">View Project</button>
+                                <button type="button" class="btn bg-gradient-info " data-bs-toggle="modal" data-bs-target="#exampleModal1">View Detail</button>
                                 <!-- Modal -->
                                 <div class="modal fade col-xl " id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                   <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                       <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">View Aadhar</h5>
                                         <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                         </button>
@@ -197,8 +197,8 @@
                                   <label class="form-control-label" for="input-city">Aadhar Number :</label>
                                   <label >Not Verified  <span>&#10060;</span></label>
                                   <input  type="text" id="input-city" class="form-control form-control-alternative" name="number" required>
-                                  <input type="file" name = "file" required>
-                                  <button tyle="submit">Upload</button>
+                                  <input type="file" class="btn btn-primary" name = "file" required>
+                                  <button class="btn bg-gradient-info " type="submit">Upload</button>
                                 </form>                
                             </div>
                         
@@ -227,8 +227,8 @@
                                 <label class="form-control-label" for="input-city">PanCard Number :</label>
                                 <label >Not Verified  <span>&#10060;</span></label>
                                 <input  type="text" id="input-city" class="form-control form-control-alternative" name="number" required>
-                                <input type="file" name = "file" required>
-                                <button tyle="submit">Upload</button>
+                                <input type="file" class="btn btn-primary" name = "file" required>
+                                <button class="btn bg-gradient-info " type="submit">Upload</button>
                               </form>                
                         
                         </div>
@@ -259,8 +259,8 @@
                                   <label class="form-control-label" for="input-city">Driving Licence Number :</label>
                                   <label >Not Verified  <span>&#10060;</span></label>
                                   <input  type="text" id="input-city" class="form-control form-control-alternative" name="number" required>
-                                  <input type="file" name = "file" required>
-                                  <button tyle="submit">Upload</button>
+                                  <input type="file" class="btn btn-primary" name = "file" required>
+                                  <button class="btn bg-gradient-info " type="submit">Upload</button>
                                 </form>                
                             </div>
                           
@@ -270,68 +270,9 @@
           </div>
         </div>
   
-        <div class="col-12 col-xl-4">
-          <div class="card m-2">
-            <div class="card-header pb-0 p-3">
-              <h6 class="mb-0">Conversations</h6>
-            </div>
-            <div class="card-body p-3">
-              <ul class="list-group">
-                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                  <div class="avatar me-3">
-                    <img src="../../../static/img/kal-visuals-square.jpg" alt="kal" class="border-radius-lg shadow">
-                  </div>
-                  <div class="d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="mb-0 text-sm">Sophie B.</h6>
-                    <p class="mb-0 text-xs">Hi! I need more information..</p>
-                  </div>
-                  <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                </li>
-                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                  <div class="avatar me-3">
-                    <img src="../../../static/img/marie.jpg" alt="kal" class="border-radius-lg shadow">
-                  </div>
-                  <div class="d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="mb-0 text-sm">Anne Marie</h6>
-                    <p class="mb-0 text-xs">Awesome work, can you..</p>
-                  </div>
-                  <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                </li>
-                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                  <div class="avatar me-3">
-                    <img src="../../../static/img/ivana-square.jpg" alt="kal" class="border-radius-lg shadow">
-                  </div>
-                  <div class="d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="mb-0 text-sm">Ivanna</h6>
-                    <p class="mb-0 text-xs">About files I can..</p>
-                  </div>
-                  <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                </li>
-                <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                  <div class="avatar me-3">
-                    <img src="../../../static/img/team-4.jpg" alt="kal" class="border-radius-lg shadow">
-                  </div>
-                  <div class="d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="mb-0 text-sm">Peterson</h6>
-                    <p class="mb-0 text-xs">Have a great afternoon..</p>
-                  </div>
-                  <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                </li>
-                <li class="list-group-item border-0 d-flex align-items-center px-0">
-                  <div class="avatar me-3">
-                    <img src="../../../static/img/team-3.jpg" alt="kal" class="border-radius-lg shadow">
-                  </div>
-                  <div class="d-flex align-items-start flex-column justify-content-center">
-                    <h6 class="mb-0 text-sm">Nick Daniel</h6>
-                    <p class="mb-0 text-xs">Hi! I need more information..</p>
-                  </div>
-                  <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+        {% comment %} <div class="col-12 col-xl-4">
+          
+      </div> {% endcomment %}
       
     </div>
     

@@ -4504,7 +4504,7 @@ fieldset:disabled .btn {
   border-top-right-radius: 0;
 }
 
-.nav {
+{% comment %} .nav {
   --bs-nav-link-padding-x: 1rem;
   --bs-nav-link-padding-y: 0.5rem;
   --bs-nav-link-font-weight: ;
@@ -4516,7 +4516,7 @@ fieldset:disabled .btn {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
-}
+} {% endcomment %}
 
 .nav-link {
   display: block;
@@ -4639,7 +4639,7 @@ fieldset:disabled .btn {
   display: block;
 }
 
-.navbar {
+{% comment %} .navbar {
   --bs-navbar-padding-x: 1rem;
   --bs-navbar-padding-y: 0.5rem;
   --bs-navbar-color: #344767;
@@ -4666,7 +4666,7 @@ fieldset:disabled .btn {
   align-items: center;
   justify-content: space-between;
   padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
-}
+} {% endcomment %}
 
 .navbar>.container,
 .navbar>.container-fluid,
@@ -4681,14 +4681,14 @@ fieldset:disabled .btn {
   justify-content: space-between;
 }
 
-.navbar-brand {
+{% comment %} .navbar-brand {
   padding-top: var(--bs-navbar-brand-padding-y);
   padding-bottom: var(--bs-navbar-brand-padding-y);
   margin-right: var(--bs-navbar-brand-margin-end);
   font-size: var(--bs-navbar-brand-font-size);
   color: var(--bs-navbar-brand-color);
   white-space: nowrap;
-}
+} {% endcomment %}
 
 .navbar-brand:hover,
 .navbar-brand:focus {

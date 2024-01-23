@@ -12,15 +12,18 @@
 
 <body>
   <div class=" mt-5 justify-content-center d-flex">
-      <div class="card-content">  
-        <div class="card" style="width: 28rem;">
+      <div class="card-content shadow-lg">  
+        <div class="card p-2 shadow" style="width: 28rem;background:#3A81F1;">
           <div class="card-body">
-            <h5 class="card-title w-100">Pay {{ride.price}} to {{ride.upi}}</h5>
-            <p class="card-text">Scan QR upi to pay.</p>
-            <img class="card-img-top" src="../../../media/upi/{{ride.id}}_upi_qr.png" alt="Card image cap">
-            <input type="text" class="form-control w-100" value="http://127.0.0.1:8000{{ request.get_full_path }}" disabled id="myInput">
-            <button class="btn btn-secondary" onclick="myFunction()">Copy text</button>
-                        <a href="{% url 'dashboard' %}" class="btn btn-primary">Proceed to Dasboard</a>
+            <h3 class="card-title w-100 text-white text-center">Pay <b> {{ride.price}}</b> to {{ride.upi}}</h3>
+            <p class="card-text text-white text-center">Scan QR upi to pay.</p>
+            <img class="card-img-top w-75 mb-3 rounded-4" style="margin-left:45px!important;" src="../../../media/upi/{{ride.id}}_upi_qr.png" alt="Card image cap">
+            <input type="text" class="form-control w-100 text-info mx-auto text-center" value="http://127.0.0.1:8000{{ request.get_full_path }}" disabled id="myInput">
+            <div class="container w-100 ml-2 d-flex text-center p-2">
+              <button class="btn btn-secondary" onclick="myFunction()">Copy text</button>
+              <a href="{% url 'dashboard' %}" class="btn btn-warning">Proceed to Dasboard</a>
+            </div>
+            
           </div>
         </div>
       </div>
@@ -30,11 +33,11 @@
     function myFunction() {
       // Get the text field
       var copyText = document.getElementById("myInput");
-    
+      
       // Select the text field
       copyText.select();
       copyText.setSelectionRange(0, 99999); // For mobile devices
-    
+      
       // Copy the text inside the text field
       navigator.clipboard.writeText(copyText.value);
       

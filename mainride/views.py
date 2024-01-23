@@ -104,23 +104,27 @@ def request_ride(request,pk):
 def dashboard(request):
 
     user = request.user
-    recent_ride = createRideLoc.objects.order_by('-id').filter(did=user).first()
-    all_rides= createRideLoc.objects.all()
-    print(recent_ride)
-    ride_requests =request_ride_data.objects.filter(ride_id=recent_ride.id)
-    users =[]
-    for ride in ride_requests:
-        user = User.objects.get(id=ride.did.id)
-        users.append(user)
+    try:
+        recent_ride = createRideLoc.objects.order_by('-id').filter(did=user).first()
+        all_rides= createRideLoc.objects.all()
+        print(recent_ride)
+        ride_requests =request_ride_data.objects.filter(ride_id=recent_ride.id)
+        users =[]
+        for ride in ride_requests:
+            user = User.objects.get(id=ride.did.id)
+            users.append(user)
 
 
-    data = {
-        'recent_ride':recent_ride,
-        'all_rides':all_rides,
-    'ride_requests_users': zip(ride_requests, users),
-    }
-    
-    return render(request,"dashboard.html",data)
+        data = {
+            'recent_ride':recent_ride,
+            'all_rides':all_rides,
+        'ride_requests_users': zip(ride_requests, users),
+        }
+
+        return render(request,"dashboard.html",data)
+    except:
+            return render(request,"dashboard.html")
+
 
 def accept(request,rideid,user):
     user = User.objects.get(id=user)

@@ -14,5 +14,7 @@ urlpatterns = [
     path('chatview',chatview,name='chatview'),    
     path('mapview',mapview,name='mapview'),    
     path('riderhome',riderhome,name='ridehome'),    
-    path('ride/details',rideDtails,name='prevrideDtails')
+    path('ride/details',rideDtails,name='prevrideDtails'),
+        path('view_map/<int:id>',view_map,name="view_map")
+
 ]

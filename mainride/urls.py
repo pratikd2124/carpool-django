@@ -6,6 +6,6 @@ urlpatterns = [
     path('dashboard/',dashboard,name='dashboard'),
     path('accept/<str:rideid>/<str:user>',accept,name='accept'),
     path('reject/<str:rideid>/<str:user>',reject,name='reject'),
-    path('payment/<int:rideid>/',payD,name="paymentdetails")
+    path('payment/<int:rideid>/',payD,name="paymentdetails"),
 
 ]
